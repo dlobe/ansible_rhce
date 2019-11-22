@@ -1,0 +1,13 @@
+---
+# ansible-playbook copy.yml
+- name: copy a file to hosts
+  hosts: myservers
+  become: true
+  #fast_gathering: false
+  tasks:
+    - name: copy a file to the home directory of user  
+      copy: 
+         src: ./file1.txt
+         dest: ~/file1.txt
+         mode: 0766
+           
