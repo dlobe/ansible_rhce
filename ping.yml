@@ -1,8 +1,0 @@
----
-## ansible-playbook ping.yml 
-- name: Ping module playbook
-  hosts: myservers
-  gather_facts: true
-  tasks:
-    - name: ping servers
-      ping:
