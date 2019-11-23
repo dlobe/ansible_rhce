@@ -1,0 +1,9 @@
+- name: Change selinux
+  hosts: myservers
+  become: true
+  gather_facts: false
+  tasks:
+    - name: change selinux to permissive
+      selinux:
+        policy: targeted
+        state: enforcing

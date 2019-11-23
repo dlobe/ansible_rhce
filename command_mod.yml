@@ -1,0 +1,15 @@
+- name: command module
+  hosts: myservers
+  become: true
+  gather_facts: false
+  tasks:
+  ###### create a file if it doesn't exist
+    - name: create a new file only if it doesnt exists
+      command: touch /tmp/test_file
+      args:
+        creates: /tmp/test_file
+  ###### how to run command only a file does exists
+    - name: remove /tmp/test_file only if it already exists
+      command: rm /tmp/test_file
+      args:
+        removes: /tmp/test_file

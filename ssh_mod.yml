@@ -1,0 +1,9 @@
+---
+- name: add a new authorized ssh key to userA
+  hosts: myservers
+  tasks:
+    - name: add a new ssh key 
+      authorized_key:
+        user: userA
+        state: present
+        key: "{{ lookup('file', '/home/userA/.ssh/id_rsa.pub') }}"

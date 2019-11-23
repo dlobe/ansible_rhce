@@ -1,5 +1,8 @@
 ---
 # ansible-playbook copy.yml
+# this module is used to copy a file
+# from current location to aws_inspector_target
+
 - name: copy a file to hosts
   hosts: myservers
   become: true

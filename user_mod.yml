@@ -1,0 +1,22 @@
+---
+- name: User creationg module
+  hosts: myservers
+  become: true
+  gather_facts: false
+  tasks:
+    - name: create a new group
+      group:
+        name: devops
+        state: present
+        gid: 1040
+    - name: create a system user to be used by ansible
+      user:
+        name: userA
+        state: present
+        shell: /bin/bash
+        group: devops
+        system: yes
+        ssh_key_file: .ssh/id_rsa
+        expires: -1
+
+          
